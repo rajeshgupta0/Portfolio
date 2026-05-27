@@ -64,14 +64,14 @@ const achievements: Achievement[] = [
   },
   {
     icon: Trophy,
-    value: 'Top 8%',
+    value: 'Top 0%',
     label: 'Competitive Programming',
     description: 'National-level coding competition rank',
     color: 'amber',
   },
   {
     icon: Target,
-    value: '65+',
+    value: '0+',
     label: 'Contests',
     description: 'CodeChef, LeetCode, and more',
     color: 'purple',
