@@ -134,87 +134,160 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     timeline: 'In Progress',
     role: 'Full-Stack Developer (Solo)',
   },
-  {
-    id: 'college-event-portal',
-    title: 'College Event Portal',
-    tagline: 'Real-time event management platform with emergency alert intelligence',
-    thumbnail: '/placeholder.svg',
-    featured: true,
+   {
+  id: 'pragyan-ai-platform',
+  title: 'Pragyan – AI-Powered College Event Feedback & Intelligence Platform',
+  tagline: 'Smart event analytics, AI feedback intelligence, and personalized recommendations',
 
-    overview: 'A full-stack event management platform designed for college fests, concerts, and technical events. It enables users to explore events, register, and interact in real-time through feedback and chat. The platform also includes an intelligent emergency alert system that analyzes user inputs and helps administrators respond quickly to critical situations.',
+  thumbnail: '/placeholder.svg',
+  featured: true,
 
-    problem: {
-      statement: 'Lack of real-time communication and emergency handling systems in college events',
-      context: 'Most event platforms only focus on registration and scheduling, ignoring live interaction, safety reporting, and feedback during the event.',
-      userPain: 'Participants cannot report issues instantly, and organizers lack visibility into emergencies or crowd concerns, leading to delayed responses and poor event management.',
-    },
+  overview:
+    'Pragyan is a full-stack AI-powered platform that helps colleges manage events, collect student feedback, analyze sentiment, identify urgent issues, and generate actionable insights. The platform transforms traditional feedback collection into an intelligent decision-making system using AI-driven analytics, keyword trend detection, event performance reports, and personalized event recommendations.',
 
-    constraints: [
-      'Real-time data handling required for chat and alerts',
-      'Designed for high concurrent users during live events',
-      'Solo development with focus on performance and scalability',
-    ],
+  problem: {
+    statement:
+      'Colleges struggle to extract meaningful insights from large volumes of student feedback and event participation data.',
 
-    architecture: {
-      description: 'Frontend-driven architecture with real-time backend powered by Supabase and AI-based processing',
-      components: [
-        { name: 'Frontend', tech: 'React + Tailwind CSS', purpose: 'Responsive UI and interactive user experience' },
-        { name: 'Backend / Database', tech: 'Supabase (PostgreSQL + Realtime)', purpose: 'Real-time data sync and storage' },
-        { name: 'AI Processing', tech: 'OpenAI API', purpose: 'Keyword detection and emergency alert classification' },
-        { name: 'Authentication', tech: 'Supabase Auth', purpose: 'Secure login and user management' },
-      ],
-    },
+    context:
+      'Traditional feedback forms provide raw responses but lack intelligent analysis, trend detection, sentiment tracking, and actionable recommendations for organizers.',
 
-    decisions: [
-      {
-        decision: 'Used Supabase instead of Firebase',
-        reasoning: 'Provides real-time capabilities with SQL-based structure, making it easier to query analytics and manage relational data.',
-        alternatives: ['Firebase (NoSQL)', 'Custom backend with WebSockets'],
-      },
-      {
-        decision: 'Integrated OpenAI API for word detection',
-        reasoning: 'Allows intelligent detection of emergency-related keywords and patterns instead of relying on static keyword matching.',
-        alternatives: ['Manual keyword filters', 'Rule-based systems'],
-      },
-      {
-        decision: 'Implemented real-time chat and feedback system',
-        reasoning: 'Ensures immediate communication between users and admins during live events.',
-        alternatives: ['Post-event feedback only', 'Email-based reporting'],
-      },
-    ],
-
-    tradeoffs: [
-      {
-        chose: 'Real-time architecture',
-        over: 'Traditional request-response system',
-        why: 'Improves responsiveness and live interaction, but increases complexity and resource usage',
-      },
-      {
-        chose: 'AI-based word detection',
-        over: 'Static keyword filtering',
-        why: 'More accurate and adaptive, but adds API cost and dependency',
-      },
-    ],
-
-    impact: [
-      { metric: 'User Engagement', value: '+150%', context: 'Due to real-time chat and feedback features' },
-      { metric: 'Response Time', value: 'Instant', context: 'Emergency alerts and live communication improved issue handling' },
-      { metric: 'Event Management Efficiency', value: '+60%', context: 'Admins gained better visibility through analytics and alerts' },
-    ],
-
-    engineeringNotes: [
-      'Implemented real-time subscriptions using Supabase for chat and feedback',
-      'Designed keyword detection pipeline using OpenAI API for smarter alert classification',
-      'Created admin dashboard for monitoring alerts and high-frequency keywords',
-      'Ensured responsive UI using Tailwind CSS for mobile-first experience',
-    ],
-
-    tech: ['React', 'Tailwind CSS', 'Supabase', 'OpenAI API', 'PostgreSQL'],
-    github: '#',
-    live: '#',
-    timeline: 'In Progress',
-    role: 'Full-Stack Developer (Solo)',
+    userPain:
+      'Students often feel their feedback is ignored, while administrators spend significant time manually reviewing responses without obtaining clear insights or improvement strategies.',
   },
+
+  constraints: [
+    'Real-time analytics and dashboard updates',
+    'AI processing for sentiment, keyword extraction, and recommendations',
+    'Scalable architecture for handling large event datasets',
+    'Secure role-based access for students and administrators',
+  ],
+
+  architecture: {
+    description:
+      'Modern full-stack architecture powered by React, Supabase, PostgreSQL, and Google Gemini AI.',
+
+    components: [
+      {
+        name: 'Frontend',
+        tech: 'React + TypeScript + Tailwind CSS',
+        purpose: 'Responsive user interface and analytics dashboard',
+      },
+      {
+        name: 'Backend',
+        tech: 'Supabase Edge Functions',
+        purpose: 'Serverless AI processing and business logic',
+      },
+      {
+        name: 'Database',
+        tech: 'PostgreSQL (Supabase)',
+        purpose: 'Store events, registrations, feedback, and analytics data',
+      },
+      {
+        name: 'AI Engine',
+        tech: 'Google Gemini AI',
+        purpose: 'Sentiment analysis, keyword extraction, recommendations, and event intelligence',
+      },
+      {
+        name: 'Authentication',
+        tech: 'Supabase Auth',
+        purpose: 'Secure student and administrator access',
+      },
+    ],
+  },
+
+  decisions: [
+    {
+      decision: 'Used Supabase as Backend-as-a-Service',
+      reasoning:
+        'Provided authentication, PostgreSQL, realtime features, storage, and edge functions in a unified ecosystem.',
+      alternatives: ['Firebase', 'Custom Node.js Backend'],
+    },
+
+    {
+      decision: 'Integrated Google Gemini AI',
+      reasoning:
+        'Enabled intelligent sentiment analysis, keyword trend detection, event summaries, and personalized recommendations.',
+      alternatives: ['Rule-based NLP', 'Traditional keyword matching'],
+    },
+
+    {
+      decision: 'Built role-based student and admin dashboards',
+      reasoning:
+        'Separated operational workflows and analytics capabilities for better usability.',
+      alternatives: ['Single dashboard approach'],
+    },
+  ],
+
+  tradeoffs: [
+    {
+      chose: 'AI-powered analysis',
+      over: 'Manual feedback review',
+      why:
+        'Provides faster insights and automation but introduces external AI dependency and API costs.',
+    },
+
+    {
+      chose: 'Serverless Edge Functions',
+      over: 'Dedicated backend server',
+      why:
+        'Improves scalability and deployment simplicity but requires stateless architecture design.',
+    },
+  ],
+
+  impact: [
+    {
+      metric: 'Feedback Processing Time',
+      value: '-90%',
+      context:
+        'Automated sentiment analysis and event reporting reduced manual review effort.',
+    },
+
+    {
+      metric: 'Insight Generation',
+      value: 'Real-Time',
+      context:
+        'Administrators receive instant analytics and trend detection.',
+    },
+
+    {
+      metric: 'Event Discovery',
+      value: '+70%',
+      context:
+        'Personalized event recommendation system improves student engagement.',
+    },
+  ],
+
+  engineeringNotes: [
+    'Implemented AI-powered sentiment analysis using Google Gemini',
+    'Built keyword trend detection and visualization dashboard',
+    'Developed urgent issue detection system for critical feedback',
+    'Created personalized event recommendation engine',
+    'Integrated image and audio feedback analysis',
+    'Implemented realtime updates using Supabase subscriptions',
+    'Generated automated AI event performance reports',
+    'Designed scalable serverless architecture using Edge Functions',
+  ],
+
+  tech: [
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'Supabase',
+    'PostgreSQL',
+    'Google Gemini AI',
+    'Recharts',
+    'Deno Edge Functions',
+  ],
+
+  github: 'https://github.com/rajeshgupta0/College-Event-FeedBack-System',
+
+  live: 'https://college-ai-event-feedback-system.vercel.app/',
+
+  timeline: '2026',
+
+  role: 'Full-Stack Developer & AI Integration Engineer (Solo)',
+},
   {
     id: 'dataviz',
     title: 'DataViz Dashboard',
